@@ -1,10 +1,10 @@
-type Schedule = {
+export type Schedule = {
   start: string;
   end: string;
   type: string;
 };
-
 type Day = {
+  monday: Schedule[];
   tuesday: Schedule[];
   wednesday: Schedule[];
   thursday: Schedule[];
