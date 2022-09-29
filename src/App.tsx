@@ -1,10 +1,13 @@
 import React from "react";
+import SearchResult from "../src/Components/SearchResult/SearchResult";
+import SearchBar from "../src/Components/SearchBar/SearchBar";
 
 const App: React.FC = () => {
   return (
-    <div className='App'>
-      <h1>hi</h1>
-    </div>
+    <main className='App place-items_center'>
+      <SearchResult />
+      <SearchBar />
+    </main>
   );
 };
 
