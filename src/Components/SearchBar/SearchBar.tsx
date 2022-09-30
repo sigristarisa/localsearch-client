@@ -1,4 +1,5 @@
 import React, { useRef } from "react";
+// import searchIcon from "../../assets/magnifying-glass.png"
 
 interface Props {
   setReponseData: Function;
@@ -28,7 +29,9 @@ const SearchBar: React.FC<Props> = ({ setReponseData }) => {
         placeholder='enter place id...'
         required
       />
-      <input type='submit' />
+      <button type='submit'>
+        {/* <img src={searchIcon} alt='search icon' /> */}
+      </button>
     </form>
   );
 };
