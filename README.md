@@ -2,7 +2,7 @@
 <h2 align="center">localsearch Full-Stack Engineer Home Assignment</h2>
 
 ### Summary
-A simple web application that shows information about business' name, address and opening hours by accessing to the customized backend API.
+A simple web application that shows information about business' name, address and opening hours by accessing to [the customized backend API](https://github.com/sigristarisa/localsearch-server).
 
 ### How to Run the App Locally
 1. Clone the project repository to your local machine
