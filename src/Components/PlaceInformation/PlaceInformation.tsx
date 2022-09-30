@@ -62,8 +62,8 @@ const PlaceInformation: React.FC<Props> = ({ responseData }) => {
       </div>
       <div className='day-time_container'>
         <ul>
-          {groupedByTimeArr.map((dayTime) => (
-            <TimeTable dayTime={dayTime} />
+          {groupedByTimeArr.map((dayTime, index) => (
+            <TimeTable key={index} dayTime={dayTime} />
           ))}
         </ul>
       </div>

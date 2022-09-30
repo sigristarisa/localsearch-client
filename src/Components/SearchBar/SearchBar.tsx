@@ -16,8 +16,7 @@ const SearchBar: React.FC<Props> = ({ setReponseData }) => {
     };
     const placeId: string = target.placeIdInput.value;
 
-    // console.log(process.env.REACT_APP_API_URL);
-    fetch(`http://localhost:4000/${placeId}`)
+    fetch(`${process.env.REACT_APP_API_URL}${placeId}`)
       .then((res) => res.json())
       .then((data) => setReponseData(data));
   };
