@@ -7,6 +7,7 @@ import {
   DayTime,
   GroupedByTime,
 } from "../../helpers/types";
+import "./PlaceInformation.css";
 
 interface Props {
   responseData: Response;
@@ -14,7 +15,7 @@ interface Props {
 
 const PlaceInformation: React.FC<Props> = ({ responseData }) => {
   const formatTime = (times: Time[]): string => {
-    return times.map((time) => `${time.start} - ${time.end}`).join(" ");
+    return times.map((time) => `${time.start} - ${time.end}`).join(", ");
   };
 
   const createDayTimeArr = (): DayTime[] => {
@@ -53,17 +54,19 @@ const PlaceInformation: React.FC<Props> = ({ responseData }) => {
   const groupedByTimeObj: GroupedByTime = groupByTime();
   const groupedByTimeArr = Object.entries(groupedByTimeObj);
 
-  console.log(groupedByTimeArr);
-
   return (
-    <div>
-      <h1>{responseData.data!.what}</h1>
-      <h2>{responseData.data!.where}</h2>
-      <ul>
-        {groupedByTimeArr.map((dayTime) => (
-          <TimeTable dayTime={dayTime} />
-        ))}
-      </ul>
+    <div className='place-information_container'>
+      <div className='name-address_container'>
+        <h1>{responseData.data!.what}</h1>
+        <h2>{responseData.data!.where}</h2>
+      </div>
+      <div className='day-time_container'>
+        <ul>
+          {groupedByTimeArr.map((dayTime) => (
+            <TimeTable dayTime={dayTime} />
+          ))}
+        </ul>
+      </div>
     </div>
   );
 };

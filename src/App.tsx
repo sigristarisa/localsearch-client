@@ -10,7 +10,7 @@ const App: React.FC = () => {
   });
 
   return (
-    <main className='App place-items_center'>
+    <main className='App justify-items_center'>
       <SearchResult responseData={responseData} />
       <SearchBar setReponseData={setResponseData} />
     </main>

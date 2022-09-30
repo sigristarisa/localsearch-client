@@ -1,9 +1,15 @@
+@import url("https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap");
 html {
   --main-color: #cbdee1;
   --sub-color: #f0d9d1;
   --bg-color: white;
   --main-text-color: black;
   --sub-text-color: #003f5d;
+  --underline-color: #c9c9c9;
+}
+
+* {
+  box-sizing: border-box;
 }
 
 body {
@@ -11,8 +17,18 @@ body {
   height: 100vh;
   margin: 0;
   background-color: var(--main-color);
+  font-family: "Roboto", sans-serif;
   display: grid;
   place-items: center;
+}
+
+h1 {
+  font-size: 28px;
+}
+
+h2 {
+  font-size: 18px;
+  font-weight: 400;
 }
 
 button {
@@ -22,8 +38,11 @@ button {
 .App {
   width: 30vw;
   height: 80vh;
+  margin: 0;
+  padding: 16px;
   background-color: var(--bg-color);
-  border-radius: 8%;
+  border: none;
+  border-radius: 15px;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }

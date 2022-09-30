@@ -1,5 +1,6 @@
 import React from "react";
 import PlaceInformation from "../PlaceInformation/PlaceInformation";
+import ErrorInformation from "../ErrorInformation/ErrorInformation";
 import { Response } from "../../helpers/types";
 import "./SearchResult.css";
 
@@ -16,7 +17,7 @@ const SearchResult: React.FC<Props> = ({ responseData }) => {
       {hasPlaceData() ? (
         <PlaceInformation responseData={responseData} />
       ) : (
-        <div>{responseData.message}</div>
+        <ErrorInformation responseData={responseData} />
       )}
     </div>
   );
