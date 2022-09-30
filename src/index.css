@@ -5,6 +5,7 @@ html {
   --bg-color: white;
   --main-text-color: black;
   --sub-text-color: #003f5d;
+  --error-text-color: #b03f1a;
   --underline-color: #c9c9c9;
 }
 
@@ -24,6 +25,7 @@ body {
 
 h1 {
   font-size: 28px;
+  color: var(--sub-text-color);
 }
 
 h2 {
@@ -65,5 +67,3 @@ button {
 .align-self {
   align-self: end;
 }
-
-/* -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif; */
