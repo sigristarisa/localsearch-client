@@ -12,7 +12,7 @@ const SearchBar: React.FC<Props> = ({ setReponseData }) => {
     const target = e.target as typeof e.target & {
       placeIdInput: { value: string };
     };
-    const placeId = target.placeIdInput.value;
+    const placeId: string = target.placeIdInput.value;
 
     // console.log(process.env.REACT_APP_API_URL);
     fetch(`http://localhost:4000/${placeId}`)

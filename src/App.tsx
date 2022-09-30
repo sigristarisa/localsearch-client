@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import SearchResult from "./Components/SearchResult/SearchResult";
 import SearchBar from "./Components/SearchBar/SearchBar";
 import { Response } from "./helpers/types";

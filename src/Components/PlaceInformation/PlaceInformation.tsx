@@ -1,67 +1,63 @@
 import React from "react";
-import { Response, Schedule } from "../../helpers/types";
+import {
+  Response,
+  Time,
+  Day,
+  DayTime,
+  GroupedByTime,
+} from "../../helpers/types";
 
 interface Props {
   responseData: Response;
 }
 
-interface DaySchedule {
-  day: string;
-  schedule: string;
-}
-
 const PlaceInformation: React.FC<Props> = ({ responseData }) => {
-  const createScheduleArr = (schedules: Schedule[]): string => {
-    return schedules
-      .map((schedule) => `${schedule.start} - ${schedule.end}`)
-      .join(" ");
+  const formatTime = (times: Time[]): string => {
+    return times.map((time) => `${time.start} - ${time.end}`).join(" ");
   };
 
-  const createDayScheduleArr = () => {
-    const daySchedules = responseData.data!.openingHours.days;
-    const dayScheduleArr = [];
+  const createDayTimeArr = (): DayTime[] => {
+    const dayTimes: Day = responseData.data!.openingHours.days;
+    const dayTimesArr: DayTime[] = [];
 
-    for (const daySchedule in daySchedules) {
-      let dayScheduleObj: DaySchedule = { day: "", schedule: "" };
-      dayScheduleObj["day"] = daySchedule;
-      dayScheduleObj["schedule"] = createScheduleArr(
-        daySchedules[daySchedule as keyof typeof daySchedules]
+    for (const dayTime in dayTimes) {
+      let dayTimeObj: DayTime = { day: "", time: "" };
+      dayTimeObj["day"] = dayTime;
+      dayTimeObj["time"] = formatTime(
+        dayTimes[dayTime as keyof typeof dayTimes]
       );
-      dayScheduleArr.push(dayScheduleObj);
+      dayTimesArr.push(dayTimeObj);
     }
 
-    return dayScheduleArr;
+    return dayTimesArr;
   };
 
-  const groupBy = () => {
-    const dayScheduleArr = createDayScheduleArr();
-    let groupedObj: { [schedule: string]: string[] } = {};
-    dayScheduleArr.forEach((daySchedule) => {
-      //   const unitId = exercise.cohortExercise.exercise.unitId;
-      //   const unitKey = `unit${unitId}`;
-      const { day, schedule } = daySchedule;
-      if (!groupedObj[schedule as keyof typeof groupedObj]) {
-        groupedObj[schedule as keyof typeof groupedObj] = [];
+  const groupBySchedule = (): GroupedByTime => {
+    const dayTimeArr: DayTime[] = createDayTimeArr();
+
+    let groupedByTimeObj: GroupedByTime = {};
+
+    dayTimeArr.forEach((daySchedule: DayTime) => {
+      const { day, time } = daySchedule;
+
+      if (!groupedByTimeObj[time as keyof typeof groupedByTimeObj]) {
+        groupedByTimeObj[time as keyof typeof groupedByTimeObj] = [];
       }
 
-      groupedObj[schedule].push(day);
+      groupedByTimeObj[time].push(day);
     });
-    return groupedObj;
+    return groupedByTimeObj;
   };
 
-  console.log(groupBy());
-
-  const groupedObj = groupBy();
-  const groupedArr = Object.entries(groupedObj);
-
-  console.log(groupedArr);
+  const groupedByScheduleObj: GroupedByTime = groupBySchedule();
+  const groupedByScheduleArr = Object.entries(groupedByScheduleObj);
 
   return (
     <div>
       <h1>{responseData.data!.what}</h1>
       <h2>{responseData.data!.where}</h2>
       <ul>
-        {groupedArr.map((schedule) => (
+        {groupedByScheduleArr.map((schedule) => (
           <li>{schedule[0]}</li>
         ))}
       </ul>

@@ -1,16 +1,17 @@
-export type Schedule = {
+export type Time = {
   start: string;
   end: string;
   type: string;
 };
-type Day = {
-  monday: Schedule[];
-  tuesday: Schedule[];
-  wednesday: Schedule[];
-  thursday: Schedule[];
-  friday: Schedule[];
-  saturday: Schedule[];
-  sunday: Schedule[];
+
+export type Day = {
+  monday: Time[];
+  tuesday: Time[];
+  wednesday: Time[];
+  thursday: Time[];
+  friday: Time[];
+  saturday: Time[];
+  sunday: Time[];
 };
 
 type OpeningHours = {
@@ -28,4 +29,13 @@ export type Response = {
   status: string;
   data?: PlaceData;
   message?: string;
+};
+
+export type DayTime = {
+  day: string;
+  time: string;
+};
+
+export type GroupedByTime = {
+  [time: string]: string[];
 };
