@@ -1,4 +1,5 @@
 import React from "react";
+import TimeTable from "../TimeTable/TimeTable";
 import {
   Response,
   Time,
@@ -32,7 +33,7 @@ const PlaceInformation: React.FC<Props> = ({ responseData }) => {
     return dayTimesArr;
   };
 
-  const groupBySchedule = (): GroupedByTime => {
+  const groupByTime = (): GroupedByTime => {
     const dayTimeArr: DayTime[] = createDayTimeArr();
 
     let groupedByTimeObj: GroupedByTime = {};
@@ -49,16 +50,18 @@ const PlaceInformation: React.FC<Props> = ({ responseData }) => {
     return groupedByTimeObj;
   };
 
-  const groupedByScheduleObj: GroupedByTime = groupBySchedule();
-  const groupedByScheduleArr = Object.entries(groupedByScheduleObj);
+  const groupedByTimeObj: GroupedByTime = groupByTime();
+  const groupedByTimeArr = Object.entries(groupedByTimeObj);
+
+  console.log(groupedByTimeArr);
 
   return (
     <div>
       <h1>{responseData.data!.what}</h1>
       <h2>{responseData.data!.where}</h2>
       <ul>
-        {groupedByScheduleArr.map((schedule) => (
-          <li>{schedule[0]}</li>
+        {groupedByTimeArr.map((dayTime) => (
+          <TimeTable dayTime={dayTime} />
         ))}
       </ul>
     </div>
