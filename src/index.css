@@ -1,6 +1,7 @@
 html {
   --main-color: #cbdee1;
-  --sub-color: white;
+  --sub-color: #f0d9d1;
+  --bg-color: white;
   --main-text-color: black;
   --sub-text-color: #003f5d;
 }
@@ -14,18 +15,36 @@ body {
   place-items: center;
 }
 
+button {
+  cursor: pointer;
+}
+
 .App {
   width: 30vw;
   height: 80vh;
-  background-color: var(--sub-color);
+  background-color: var(--bg-color);
   border-radius: 8%;
   box-shadow: rgba(0, 0, 0, 0.16) 0px 10px 36px 0px,
     rgba(0, 0, 0, 0.06) 0px 0px 0px 1px;
 }
 
+.grid-columns-two_extend-one {
+  display: grid;
+  grid-template-columns: 1fr auto;
+}
+
+.justify-items_center {
+  display: grid;
+  place-items: center;
+}
+
 .place-items_center {
   display: grid;
   place-items: center;
+}
+
+.align-self {
+  align-self: end;
 }
 
 /* -apple-system,BlinkMacSystemFont,Segoe UI,Roboto,Helvetica Neue,Arial,Noto Sans,sans-serif; */
