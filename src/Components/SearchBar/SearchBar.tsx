@@ -22,7 +22,12 @@ const SearchBar: React.FC<Props> = ({ setReponseData }) => {
 
   return (
     <form ref={placeIdFormRef} onSubmit={submitPlaceIdForm}>
-      <input type='text' name='placeIdInput' placeholder='enter place id...' />
+      <input
+        type='text'
+        name='placeIdInput'
+        placeholder='enter place id...'
+        required
+      />
       <input type='submit' />
     </form>
   );
