@@ -15,6 +15,7 @@ interface Props {
 
 const PlaceInformation: React.FC<Props> = ({ responseData }) => {
   const formatTime = (times: Time[]): string => {
+    if (!times.length) return "CLOSED";
     return times.map((time) => `${time.start} - ${time.end}`).join(", ");
   };
 
